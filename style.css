@@ -842,3 +842,56 @@ footer .container li a:hover {
         font-size: 72px;
     }
 }
+
+/* ================== Mobile Responsiveness (für Handys & Tablets) ================== */
+@media (max-width: 768px) {
+
+    /* --- 1. Schriftgrößen anpassen --- */
+    .hero h1 {
+        font-size: 48px; /* Deutlich kleiner als 80px */
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 18px; /* Etwas kleiner */
+    }
+
+    .playfair-text-block {
+        font-size: 36px; /* Deutlich kleiner als 64px */
+    }
+
+    .integrations-headline,
+    .contact-info h2 {
+        font-size: 38px; /* Deutlich kleiner als 56px */
+    }
+
+    .feature-card h3 {
+        font-size: 28px;
+    }
+
+    /* --- 2. Layouts anpassen (Grids auf 1 Spalte) --- */
+    .feature-cards-grid {
+        grid-template-columns: 1fr; /* WICHTIG: Stellt die Karten untereinander */
+    }
+    
+    .footer-links {
+        justify-content: flex-start; /* Footer-Spalten linksbündig */
+        gap: 40px;
+    }
+
+    /* --- 3. Abstände verringern --- */
+    .feature,
+    .stats-section,
+    .integrations-section,
+    .contact-section,
+    .security-section {
+        padding: 40px 0; /* Weniger Abstand oben/unten */
+    }
+
+    .playfair-text-block,
+    .stats-grid,
+    .integrations-container,
+    .contact-container {
+        padding: 0 20px; /* Weniger Abstand links/rechts */
+    }
+}
