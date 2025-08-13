@@ -201,8 +201,7 @@ h1 em {
 /* ================== Allgemeine Sektions-Abstände ================== */
 .feature,
 .stats-section,
-.integrations-section,
-.contact-section {
+.integrations-section {
     padding: 70px 0;
 }
 
@@ -320,7 +319,6 @@ section[id] {
 }
 
 .solutions-prose .prose-step:last-of-type {
-    /* GEÄNDERT: Wert von 45vh auf 75vh erhöht für korrekte Ausrichtung am Ende */
     padding-bottom: 20vh;
 }
 
@@ -447,48 +445,23 @@ section[id] {
     margin-top: 40px;
 }
 
-/* ================== Contact Section ================== */
+/* ================== Contact Section FINAL ================== */
+.contact-intro-section {
+    padding: 70px 0 0; /* Abstand oben, aber kein Abstand unten */
+}
+
 .contact-section {
-    
+    padding: 0 0 70px; /* Nur noch Abstand unten */
 }
 
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.contact-info h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-top: 0;
-}
-
-.contact-checklist {
-    list-style: none;
-    padding: 0;
-    margin: 30px 0;
-}
-
-.contact-checklist li {
-    padding-left: 30px;
-    position: relative;
-    margin-bottom: 15px;
-    font-size: 17px;
-    color: #aaa;
-}
-
-.contact-checklist li::before {
-    content: '•';
-    color: #00ffd5;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+    align-items: center; 
+    width: 100%; /* Nimmt die volle Breite ein */
+    box-sizing: border-box; /* Wichtig für korrektes Padding */
+    padding: 0 4vw; /* Exakt gleicher Abstand wie die Überschrift darüber */
 }
 
 .form-group {
@@ -516,7 +489,7 @@ section[id] {
 .contact-form select,
 .contact-form textarea {
     width: 100%;
-    padding: 12px;
+    padding: 20px;
     background-color: transparent;
     border: 1px solid #444;
     border-radius: 8px;
@@ -530,6 +503,67 @@ section[id] {
     width: 100%;
     padding: 15px;
     font-size: 17px;
+}
+
+/* ================== Testimonial Styles (im Kontaktbereich) ================== */
+.testimonial-column {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+}
+
+.testimonial-quote {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #aaa;
+    margin: 0 0 20px 0;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-info strong {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f5f5f5;
+}
+
+.author-info span {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Spezielle Regeln für die Ausrichtung */
+.testimonial-card.align-right {
+    text-align: right;
+    align-self: flex-end;
+    width: 95%;
+}
+
+.testimonial-card.align-right .testimonial-author {
+    justify-content: flex-end;
+}
+
+.testimonial-card.align-left {
+    align-self: flex-start;
+    width: 95%;
 }
 
 /* ================== Security Section ================== */
@@ -569,13 +603,6 @@ section[id] {
     margin: 0;
 }
 
-/* Responsive Anpassung für die Security-Sektion */
-@media (max-width: 768px) {
-    .security-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* ================== Feature Cards Sektion ================== */
 .feature-cards-grid {
     display: grid;
@@ -604,7 +631,7 @@ section[id] {
 .feature-card p {
     font-size: 17px;
     line-height: 1.6;
-    margin: 0; /* GEÄNDERT: Abstand nach unten entfernt */
+    margin: 0;
 }
 .dark-card { color: #fff; }
 .light-card { background-color: #f5f5f5; color: #111; }
@@ -630,12 +657,12 @@ footer .container {
 }
 
 .footer-brand {
-    flex: 2; /* Gibt dem Logo-Bereich mehr Raum */
+    flex: 2;
     min-width: 250px;
 }
 
 .footer-logo img {
-    height: 48px; /* Dezente Größe für den Footer */
+    height: 48px;
     width: auto;
     margin-bottom: 0px;
 }
@@ -650,7 +677,7 @@ footer .container {
 
 .footer-links {
     display: flex;
-    gap: 60px; /* Abstand zwischen den Link-Spalten */
+    gap: 60px;
     flex: 3;
     justify-content: flex-end;
 }
@@ -682,51 +709,6 @@ footer li a {
 }
 
 footer li a:hover {
-    color: #fff;
-}
-
-/* ================== Footer (DARK MODE) ================== */
-footer {
-    background-color: #000;
-    padding: 70px 0;
-    border-top: 1px solid #222;
-}
-
-footer .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 180px;
-}
-
-.footer-column h3 {
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-}
-
-footer .container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-footer .container li a {
-    text-decoration: none;
-    color: #aaa;
-    line-height: 2.5;
-    font-weight: 500;
-    font-size: 15px;
-    transition: color 0.2s ease;
-}
-
-footer .container li a:hover {
     color: #fff;
 }
 
@@ -820,8 +802,81 @@ footer .container li a:hover {
     .integrations-headline {
         font-size: 42px;
     }
-    .contact-container {
+}
+
+/* ================== Mobile Responsiveness (für Handys & Tablets) ================== */
+@media (max-width: 768px) {
+
+    /* --- Schriftgrößen anpassen --- */
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .playfair-text-block {
+        font-size: 36px;
+    }
+
+    .integrations-headline,
+    .contact-info h2 {
+        font-size: 38px;
+    }
+
+    .feature-card h3 {
+        font-size: 28px;
+    }
+    
+    .stat-number {
+        font-size: 60px;
+        word-break: break-all;
+    }
+
+    /* --- Layouts anpassen (Grids auf 1 Spalte) --- */
+    .feature-cards-grid {
         grid-template-columns: 1fr;
+    }
+
+    .security-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    /* --- Abstände verringern --- */
+    .feature,
+    .stats-section,
+    .integrations-section {
+        padding: 40px 0;
+    }
+
+    .playfair-text-block,
+    .stats-grid,
+    .integrations-container,
+    .contact-container {
+        padding: 0 20px;
+    }
+
+    /* --- Kontakt & Testimonial Mobile --- */
+     .contact-container {
+        grid-template-columns: 1fr; /* Spalten untereinander auf dem Handy */
+    }
+    
+    .testimonial-card.align-right,
+    .testimonial-card.align-left {
+        width: 100%; /* Volle Breite auf dem Handy */
+        align-self: flex-start;
+        text-align: left;
+    }
+
+    .testimonial-card.align-right .testimonial-author {
+        justify-content: flex-start;
     }
 }
 
@@ -840,58 +895,5 @@ footer .container li a:hover {
     }
     .stat-number {
         font-size: 72px;
-    }
-}
-
-/* ================== Mobile Responsiveness (für Handys & Tablets) ================== */
-@media (max-width: 768px) {
-
-    /* --- 1. Schriftgrößen anpassen --- */
-    .hero h1 {
-        font-size: 48px; /* Deutlich kleiner als 80px */
-        letter-spacing: -1px;
-    }
-
-    .hero p {
-        font-size: 18px; /* Etwas kleiner */
-    }
-
-    .playfair-text-block {
-        font-size: 36px; /* Deutlich kleiner als 64px */
-    }
-
-    .integrations-headline,
-    .contact-info h2 {
-        font-size: 38px; /* Deutlich kleiner als 56px */
-    }
-
-    .feature-card h3 {
-        font-size: 28px;
-    }
-
-    /* --- 2. Layouts anpassen (Grids auf 1 Spalte) --- */
-    .feature-cards-grid {
-        grid-template-columns: 1fr; /* WICHTIG: Stellt die Karten untereinander */
-    }
-    
-    .footer-links {
-        justify-content: flex-start; /* Footer-Spalten linksbündig */
-        gap: 40px;
-    }
-
-    /* --- 3. Abstände verringern --- */
-    .feature,
-    .stats-section,
-    .integrations-section,
-    .contact-section,
-    .security-section {
-        padding: 40px 0; /* Weniger Abstand oben/unten */
-    }
-
-    .playfair-text-block,
-    .stats-grid,
-    .integrations-container,
-    .contact-container {
-        padding: 0 20px; /* Weniger Abstand links/rechts */
     }
 }
