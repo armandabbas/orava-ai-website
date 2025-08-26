@@ -216,7 +216,7 @@
     <section id="integrationen" class="integrations-section">
         <div class="integrations-container">
             <div class="text-content">
-                <h2 class="integrations-headline">Alle Ihre Tools. Endlich perfekt verbunden</h2>
+                <h2 class="integrations-headline">Alle Ihre Tools. Endlich <em>perfekt</em> verbunden</h2>
                 <ul class="feature-list">
                     <li>Arbeitsabläufe zwischen über 100+ Business-Tools nahtlos verbinden</li>
                     <li>Daten in Echtzeit synchronisieren – ohne manuelle Eingaben</li>
@@ -236,7 +236,7 @@
     <section class="contact-intro-section">
         <div class="intro-text-container">
             <p class="playfair-text-block">
-                <span class="highlight-white">Ihr Einstieg in Orava Automations.</span>
+                <span class="highlight-white">Ihr <em>Einstieg</em> in Orava Automations.</span>
                 Sprechen Sie mit einem Experten, um die Anwendungsfälle und Vorteile von KI-Agenten zu entdecken.
             </p>
         </div>
@@ -250,7 +250,7 @@
                 <div class="testimonial-card align-left">
                     <p class="testimonial-quote">"Dank Orava AI konnten wir unseren Angebotsprozess um 62% beschleunigen. Das hat uns einen enormen Wettbewerbsvorteil verschafft."</p>
                     <div class="testimonial-author">
-                        <img src="images/Kunden/person-1.jpg" alt="Foto von Max Mustermann">
+                        <img src="images/kunden/person-1.jpg" alt="Foto von Max Mustermann">
                         <div class="author-info">
                             <strong>Max Mustermann</strong>
                             <span>CEO, Maschinenbau GmbH</span>
@@ -261,7 +261,7 @@
                 <div class="testimonial-card align-right">
                     <p class="testimonial-quote">"Die automatisierten Finanzreports sparen unserer Buchhaltung jede Woche 10 Stunden manuelle Arbeit. Ein absoluter Game-Changer!"</p>
                     <div class="testimonial-author">
-                        <img src="images/Kunden/person-2.jpg" alt="Foto von Erika Mustermann">
+                        <img src="images/kunden/person-2.jpg" alt="Foto von Erika Mustermann">
                         <div class="author-info">
                             <strong>Erika Mustermann</strong>
                             <span>Leitung Finanzen, Steuerkanzlei</span>
@@ -272,7 +272,7 @@
                 <div class="testimonial-card align-left">
                     <p class="testimonial-quote">"Die Implementierung war unkompliziert und die Akzeptanz im Team hoch. Endlich haben wir mehr Zeit für strategische Aufgaben."</p>
                     <div class="testimonial-author">
-                        <img src="images/Kunden/person-3.jpg" alt="Foto von Jonas Schmidt">
+                        <img src="images/kunden/person-3.jpg" alt="Foto von Jonas Schmidt">
                         <div class="author-info">
                             <strong>Jonas Schmidt</strong>
                             <span>Projektleiter, Großhandel AG</span>
@@ -283,40 +283,82 @@
             </div>
 
             <div class="contact-form">
-                <form action="https://formspree.io/f/mkgzyekb" method="POST">
-                    <div class="form-group">
-                        <label for="Email">Email</label>
-                        <input type="email" id="Email" name="Email" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="Vorname">Vorname</label>
-                            <input type="text" id="Vorname" name="Vorname" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Nachname">Nachname</label>
-                            <input type="text" id="Nachname" name="Nachname" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="Unternehmen">Unternehmen</label>
-                            <input type="text" id="Unternehmen" name="Unternehmen" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="job-titel">Job Titel</label>
-                            <input type="text" id="job-titel" name="Job Titel" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="more-info">Teilen Sie uns mit, welche Prozesse Sie vereinfachen, beschleunigen oder automatisieren wollen.</label>
-                        <textarea id="more-info" name="Nachricht" rows="3" required></textarea>
-                    </div>
-                    <button type="submit" class="button">Anfrage senden</button>
-                </form>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="Vorname">Vorname</label>
+                <input type="text" id="Vorname" name="Vorname" required>
+            </div>
+            <div class="form-group">
+                <label for="Nachname">Nachname</label>
+                <input type="text" id="Nachname" name="Nachname" required>
             </div>
         </div>
-    </section>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="Unternehmen">Unternehmen</label>
+                <input type="text" id="Unternehmen" name="Unternehmen" required>
+            </div>
+            <div class="form-group">
+                <label for="job-titel">Job Titel</label>
+                <input type="text" id="job-titel" name="JobTitel" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="more-info">Teilen Sie uns mit, welche Prozesse Sie vereinfachen, beschleunigen oder automatisieren wollen.</label>
+            <textarea id="more-info" name="Nachricht" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="button">Anfrage senden</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const webhookUrl = 'https://armandabbas.app.n8n.cloud/webhook/084ea4bf-88b8-4492-acea-d78c8da9e40b'; // <-- WICHTIG: Deine URL hier einfügen!
+
+        form.addEventListener('submit', function(event) {
+            // 1. Verhindert das normale Absenden und Neuladen der Seite
+            event.preventDefault();
+
+            // 2. Sammelt alle Formulardaten in einem Paket
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // 3. Ändert den Button-Text und deaktiviert ihn, um doppeltes Senden zu verhindern
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Wird gesendet...';
+            submitButton.disabled = true;
+
+            // 4. Sendet die Daten als JSON an deinen n8n Webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 5. Bei Erfolg: Ersetzt das Formular durch eine Dankesnachricht
+                    form.innerHTML = '<div style="text-align: center; padding: 20px; border: 1px solid #4CAF50; border-radius: 5px; color: #4CAF50;"><h3>Vielen Dank!</h3><p>Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns in Kürze bei Ihnen.</p></div>';
+                } else {
+                    // Bei einem Server-Fehler (z.B. falsche URL)
+                    throw new Error('Server-Antwort war nicht ok.');
+                }
+            })
+            .catch(error => {
+                // 6. Bei einem Netzwerk-Fehler: Zeigt eine Fehlermeldung an und reaktiviert den Button
+                console.error('Fehler beim Senden des Formulars:', error);
+                submitButton.textContent = 'Fehler! Erneut versuchen';
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+</div>
         
 </main>
 
